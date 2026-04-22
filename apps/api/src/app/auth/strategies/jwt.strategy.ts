@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { Request } from 'express';
+import { UserJwtPayload } from 'src/@types/auth';
 
 export type JwtPayload = {
   sub: string;
@@ -14,7 +15,6 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
     const extractJwtFromCookie = (req: Request) => {
       let token = null;
       if (req && req.cookies) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
         token = req.cookies['access_token'];
       }
 
@@ -27,9 +27,10 @@ export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
     });
   }
 
-  validate() {
-    const user = {
-      user: 'Tester',
+  validate(payload: UserJwtPayload) {
+    const user: UserJwtPayload = {
+      email: payload.email,
+      sub: payload.sub,
     };
 
     return user;
