@@ -6,8 +6,10 @@ import { useQuery } from "@tanstack/react-query";
 import { api } from "@/lib/api";
 import { UserHeader } from "@/@types/auth";
 import Image from "next/image"; // Import Image Next.js
+import { useTranslations } from "next-intl";
 
 export function Header() {
+  const t = useTranslations("header");
   // Destrukturisasi 'data' sebagai 'user'
   const { data: user, isLoading } = useQuery({
     queryKey: ["user-header"],
@@ -73,10 +75,10 @@ export function Header() {
             ) : (
               <>
                 <p className="text-[13px] font-semibold text-slate-700 leading-none capitalize">
-                  {user?.name || "Guest"}
+                  {user?.name || t("guest")}
                 </p>
                 <p className="text-[11px] text-slate-400 mt-1 capitalize">
-                  {user?.role || "User"}
+                  {user?.role || t("role")}
                 </p>
               </>
             )}
@@ -89,9 +91,9 @@ export function Header() {
               <Image
                 src={
                   user?.picture ||
-                  `https://api.dicebear.com/7.x/initials/svg?seed=${user?.name || "Guest"}`
+                  `https://api.dicebear.com/7.x/initials/svg?seed=${user?.name || t("guest")}`
                 }
-                alt={user?.name || "User Profile"}
+                alt={user?.name || t("profileAlt")}
                 fill
                 className="object-cover bg-slate-100"
                 sizes="32px"

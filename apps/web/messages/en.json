@@ -1,0 +1,25 @@
+{
+  "HomePage": {
+    "title": "Solo CRM — CRM built for independent founders."
+  },
+  "login": {
+    "pageTitle": "Login",
+    "slogan": "Run your business with clarity and confidence.",
+    "welcome": "Welcome back",
+    "description": "Sign in with Google to access your Solo CRM dashboard.",
+    "button": "Continue with Google",
+    "terms": "By continuing, you agree to our Terms of Service and Privacy Policy.",
+    "success": "Login successful",
+    "imageAlt": "Business dashboard illustration"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "heading": "Welcome to your dashboard",
+    "subheading": "Everything you need to manage contacts, deals, and follow-ups is ready."
+  },
+  "header": {
+    "guest": "Guest",
+    "role": "User",
+    "profileAlt": "User profile"
+  }
+}

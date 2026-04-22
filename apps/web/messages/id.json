@@ -1,0 +1,25 @@
+{
+  "HomePage": {
+    "title": "Solo CRM — CRM untuk solopreneur yang ingin fokus berkembang."
+  },
+  "login": {
+    "pageTitle": "Masuk",
+    "slogan": "Jalankan bisnis Anda dengan lebih jelas dan percaya diri.",
+    "welcome": "Selamat datang kembali",
+    "description": "Masuk dengan Google untuk membuka dashboard Solo CRM.",
+    "button": "Lanjutkan dengan Google",
+    "terms": "Dengan melanjutkan, Anda menyetujui Ketentuan Layanan dan Kebijakan Privasi kami.",
+    "success": "Login berhasil",
+    "imageAlt": "Ilustrasi dasbor bisnis"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "heading": "Selamat datang di dashboard Anda",
+    "subheading": "Semua yang Anda perlukan untuk mengelola pelanggan, penawaran, dan tindak lanjut tersedia di sini."
+  },
+  "header": {
+    "guest": "Tamu",
+    "role": "Pengguna",
+    "profileAlt": "Profil pengguna"
+  }
+}

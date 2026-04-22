@@ -13,14 +13,16 @@ import { serverUrl } from "@/constants/urls";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import { useTranslations } from "next-intl";
 
 export function LoginAction() {
   const router = useRouter();
+  const t =useTranslations("login")
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
       if (event.data?.status === "success") {
-        toast.success("Login berhasil", {
+        toast.success(t("success"), {
           position: "top-center",
           autoClose: 3000,
         });
@@ -34,7 +36,7 @@ export function LoginAction() {
     return () => {
       window.removeEventListener("message", handleMessage);
     };
-  }, [router]);
+  }, [router, t]);
 
   const handleGoogleLogin = () => {
     const width = 500;
@@ -57,25 +59,22 @@ export function LoginAction() {
       {/* Mengubah max-w-100 menjadi 400px agar proporsional */}
       <Card className="border-none shadow-none md:shadow-sm md:border">
         <CardHeader className="space-y-1 text-center">
-          <CardTitle className="text-2xl font-bold">Selamat Datang</CardTitle>
-          <CardDescription>
-            Gunakan akun Google Anda untuk mengakses dashboard Solo CRM
-          </CardDescription>
+          <CardTitle className="text-2xl font-bold">{t("welcome")}</CardTitle>
+          <CardDescription>{t("description")}</CardDescription>
         </CardHeader>
         <CardContent className="grid gap-4">
           <Button
             variant="outline"
-            className="w-full py-6 text-base font-medium flex gap-3" // Tambah gap agar ikon & teks tidak menempel
+            className="w-full py-6 text-base font-medium flex gap-3"
             onClick={handleGoogleLogin}
           >
             <FcGoogle className="text-xl" />
-            Masuk dengan Google
+            {t("button")}
           </Button>
         </CardContent>
       </Card>
       <p className="mt-6 text-center text-xs text-muted-foreground leading-relaxed">
-        Dengan melanjutkan, Anda menyetujui Ketentuan Layanan dan Kebijakan
-        Privasi kami.
+        {t("terms")}
       </p>
     </div>
   );
