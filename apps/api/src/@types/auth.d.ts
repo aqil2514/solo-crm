@@ -41,3 +41,8 @@ export interface GoogleProfile {
     domain?: string;
   };
 }
+
+export interface UserJwtPayload {
+  sub: string;
+  email: string;
+}

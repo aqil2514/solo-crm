@@ -3,10 +3,12 @@ import { PassportStrategy } from '@nestjs/passport';
 import { Strategy } from 'passport-google-oauth2';
 import { VerifiedCallback } from 'passport-jwt';
 import { UserProfile, GoogleProfile } from 'src/@types/auth';
+import { AuthProfileService } from '../services/auth-profile.service';
+import { Prisma } from 'generated/prisma/client';
 
 @Injectable()
 export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
-  constructor() {
+  constructor(private readonly service: AuthProfileService) {
     super({
       clientID: `${process.env.GOOGLE_AUTH_CLIENT_ID}`,
       callbackURL: `${process.env.GOOGLE_AUTH_CALLBACK_URL}`,
@@ -15,14 +17,19 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
     });
   }
 
-  validate(
+  async validate(
     _access_token: string,
     _refresh_token: string,
     profile: GoogleProfile,
     done: VerifiedCallback,
   ) {
     const { id, name, emails, photos } = profile;
-    const user: UserProfile = {
+    const user = await this.service.getUserByEmail(emails[0].value);
+    if (user) {
+      return done(null, user);
+    }
+
+    const googlePayload: UserProfile = {
       provider: 'google',
       providerId: id,
       email: emails[0].value,
@@ -30,6 +37,14 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
       picture: photos[0].value,
     };
 
-    done(null, user);
+    const dbPayload: Prisma.UserCreateInput = {
+      email: googlePayload.email,
+      name: googlePayload.name,
+      picture: googlePayload.picture,
+    };
+
+    const newUser = await this.service.createNewUser(dbPayload);
+
+    done(null, newUser);
   }
 }
