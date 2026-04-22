@@ -8,8 +8,16 @@ export class AuthProfileService {
 
   async getUser(
     userWhereUniqueInput: Prisma.UserWhereUniqueInput,
+    select: Prisma.UserSelect,
   ): Promise<User | null> {
-    return this.prisma.user.findUnique({ where: userWhereUniqueInput });
+    return this.prisma.user.findUnique({ where: userWhereUniqueInput, select });
+  }
+
+  async getUserProfile(userId: string) {
+    return this.prisma.user.findUnique({
+      where: { id: userId },
+      select: { name: true, email: true, role: true, picture: true },
+    });
   }
 
   async getUserByEmail(email: string): Promise<User | null> {
@@ -18,11 +26,7 @@ export class AuthProfileService {
 
   async createNewUser(payload: Prisma.UserCreateInput): Promise<User> {
     const newUser = this.prisma.user.create({
-      data: {
-        email: payload.email,
-        name: payload.name,
-        picture: payload.picture,
-      },
+      data: payload,
     });
 
     return newUser;

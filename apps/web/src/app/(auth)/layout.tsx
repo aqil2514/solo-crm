@@ -1,4 +1,3 @@
-import { Header } from "@/components/layouts/header";
 import { getAuth } from "@/lib/get-auth";
 import {
   dehydrate,
@@ -8,7 +7,7 @@ import {
 import { redirect } from "next/navigation";
 import React from "react";
 
-export default async function ProtectedLayout({
+export default async function AuthLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -21,16 +20,16 @@ export default async function ProtectedLayout({
       queryFn: getAuth,
     });
 
-    if (!userData) {
-      redirect("/login");
+    if (userData) {
+      redirect("/dashboard");
     }
-  } catch {
-    redirect("/login");
+  } catch (error) {
+    console.error(error);
+    throw error;
   }
-  
+
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <Header />
       {children}
     </HydrationBoundary>
   );
