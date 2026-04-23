@@ -1,4 +1,5 @@
 import { Header } from "@/components/layouts/header";
+import { ProtectedSidebar } from "@/components/layouts/protected-sidebar";
 import { getAuth } from "@/lib/get-auth";
 import {
   dehydrate,
@@ -7,6 +8,10 @@ import {
 } from "@tanstack/react-query";
 import { redirect } from "next/navigation";
 import React from "react";
+import {
+  SidebarProvider,
+  SidebarInset,
+} from "@/components/ui/sidebar";
 
 export default async function ProtectedLayout({
   children,
@@ -30,8 +35,13 @@ export default async function ProtectedLayout({
   
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <Header />
-      {children}
+      <SidebarProvider>
+        <ProtectedSidebar />
+        <SidebarInset>
+          <Header />
+          {children}
+        </SidebarInset>
+      </SidebarProvider>
     </HydrationBoundary>
   );
 }

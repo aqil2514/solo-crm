@@ -1,5 +1,5 @@
 import { routing } from "@/i18n/routing";
-import { hasLocale } from "next-intl";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
 
 type Props = {
@@ -13,5 +13,5 @@ export default async function LocaleLayout({ children, params }: Props) {
     notFound();
   }
 
-  return children;
+  return <NextIntlClientProvider>{children}</NextIntlClientProvider>;
 }

@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import { QueryClientProvider } from "@/providers/tanstack-provider";
-import { NextIntlClientProvider } from "next-intl";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -34,7 +34,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <QueryClientProvider>
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <TooltipProvider>{children}</TooltipProvider>
           <ToastContainer />
         </QueryClientProvider>
       </body>
