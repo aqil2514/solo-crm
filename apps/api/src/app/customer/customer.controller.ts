@@ -8,7 +8,6 @@ import { JwtAuthGuard } from 'src/guards/jwt-auth.guard';
 export class CustomerController {
   @Get('')
   async getCustomer(@User() user: UserJwtPayload) {
-    console.log(user);
     return { message: 'PK' };
   }
 }

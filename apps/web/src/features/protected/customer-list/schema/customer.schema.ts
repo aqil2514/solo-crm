@@ -1,3 +1,5 @@
+// TODO : i18n belum
+import { phoneFieldSchema } from "@/components/forms/form-field-phone";
 import { z } from "zod";
 
 export const customerSchema = z.object({
@@ -7,14 +9,7 @@ export const customerSchema = z.object({
     .min(3, "Nama minimal harus 3 karakter")
     .max(100, "Nama terlalu panjang"),
 
-  // WhatsApp/Telepon (Sangat krusial untuk pasar Indonesia)
-  phone: z
-    .string()
-    .min(10, "Nomor telepon minimal 10 digit")
-    .max(15, "Nomor telepon maksimal 15 digit")
-    .regex(/^[0-9]+$/, "Nomor telepon hanya boleh berisi angka")
-    .optional()
-    .or(z.literal("")), // Mengizinkan string kosong jika opsional
+  phone: phoneFieldSchema,
 
   email: z.email("Format email tidak valid").optional().or(z.literal("")),
 

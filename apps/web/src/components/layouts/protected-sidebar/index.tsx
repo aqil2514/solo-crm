@@ -11,10 +11,19 @@ import {
   SidebarFooter,
   SidebarGroup,
   SidebarGroupLabel,
+  SidebarMenuSub,
+  SidebarMenuSubItem,
+  SidebarMenuSubButton,
 } from "@/components/ui/sidebar";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 import { SIDEBAR_MENU_ITEMS } from "./menu-items";
 import { Link } from "@/i18n/navigation";
 import { LanguageSwitcher } from "./language-switcher";
+import { ChevronRight } from "lucide-react"; // Import icon untuk indikator dropdown
 
 export function ProtectedSidebar() {
   const t = useTranslations("sidebar");
@@ -36,16 +45,53 @@ export function ProtectedSidebar() {
         <SidebarGroup>
           <SidebarGroupLabel>{t("main_menu")}</SidebarGroupLabel>
           <SidebarMenu>
-            {SIDEBAR_MENU_ITEMS.map((item) => (
-              <SidebarMenuItem key={item.id}>
-                <SidebarMenuButton asChild tooltip={t(item.labelKey)}>
-                  <Link href={item.href} className="flex items-center gap-3 py-5">
-                    <item.icon className="w-5 h-5 opacity-70" />
-                    <span className="font-medium">{t(item.labelKey)}</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            ))}
+            {SIDEBAR_MENU_ITEMS.map((item) => {
+              const hasChildren = item.children && item.children.length > 0;
+
+              if (!hasChildren) {
+                return (
+                  <SidebarMenuItem key={item.id}>
+                    <SidebarMenuButton asChild tooltip={t(item.labelKey)}>
+                      <Link href={item.href} className="flex items-center gap-3 py-5">
+                        <item.icon className="w-5 h-5 opacity-70" />
+                        <span className="font-medium">{t(item.labelKey)}</span>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                );
+              }
+
+              return (
+                <Collapsible
+                  key={item.id}
+                  asChild
+                  className="group/collapsible"
+                >
+                  <SidebarMenuItem>
+                    <CollapsibleTrigger asChild>
+                      <SidebarMenuButton tooltip={t(item.labelKey)}>
+                        <item.icon className="w-5 h-5 opacity-70" />
+                        <span className="font-medium">{t(item.labelKey)}</span>
+                        <ChevronRight className="ml-auto h-4 w-4 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                      </SidebarMenuButton>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent>
+                      <SidebarMenuSub>
+                        {item.children?.map((child) => (
+                          <SidebarMenuSubItem key={child.id}>
+                            <SidebarMenuSubButton asChild>
+                              <Link href={child.href}>
+                                <span>{t(child.labelKey)}</span>
+                              </Link>
+                            </SidebarMenuSubButton>
+                          </SidebarMenuSubItem>
+                        ))}
+                      </SidebarMenuSub>
+                    </CollapsibleContent>
+                  </SidebarMenuItem>
+                </Collapsible>
+              );
+            })}
           </SidebarMenu>
         </SidebarGroup>
       </SidebarContent>

@@ -38,7 +38,11 @@
   "sidebar": {
     "dashboard": "Dashboard",
     "customers": "Customers",
+    "customer_list": "Customer List",
+    "customer_status": "Customer Status",
+    "customer_categories": "Customer Categories",
     "settings": "Settings",
+    "profile": "Profile",
     "language": "Language",
     "english": "English",
     "indonesian": "Bahasa Indonesia",

@@ -1,0 +1,35 @@
+model CustomerCategory {
+  id          Int     @id @default(autoincrement())
+  user_id     String  @map("user_id") @db.Uuid
+  name        String
+  description String?
+  user        User    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  customers Customers[]
+}
+
+model CustomerStatus {
+  id          Int     @id @default(autoincrement())
+  user_id     String  @map("user_id") @db.Uuid
+  name        String
+  description String?
+  user        User    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  customers Customers[]
+}
+
+model Customers {
+  id           String   @id @default(uuid()) @db.Uuid
+  user_id      String   @map("user_id") @db.Uuid
+  phone_number String
+  email        String
+  category_id  Int
+  address      String
+  status_id    Int
+  notes        String?
+  tags         String[]
+
+  user     User             @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  category CustomerCategory @relation(fields: [category_id], references: [id], onDelete: Cascade)
+  status   CustomerStatus   @relation(fields: [status_id], references: [id], onDelete: Cascade)
+}

@@ -25,4 +25,7 @@ export type { FormFieldDateProps } from "./form-field-date";
 export { FormFieldPassword } from "./form-field-password";
 export type { FormFieldPasswordProps } from "./form-field-password";
 
+export { FormFieldPhone } from "./form-field-phone";
+export type { FormFieldPhoneProps } from "./form-field-phone";
+
 export type { BasicFormFieldProps } from "./form.interface";

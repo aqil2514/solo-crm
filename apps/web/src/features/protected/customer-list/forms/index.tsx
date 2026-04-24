@@ -7,7 +7,8 @@ import {
   FormFieldSelect,
   FormFieldTags,
   FormFieldTextarea,
-  FormFieldText
+  FormFieldText,
+  FormFieldPhone,
 } from "@/components/forms";
 import { useTranslations } from "next-intl";
 
@@ -21,16 +22,24 @@ export function CustomerForm() {
     >
       {(form) => (
         <>
-          <FormFieldText form={form} name="name" label={t("name")} />
-          <FormFieldText form={form} name="phone" label={t("phone")} />
+          <div className="grid grid-cols-2 gap-4">
+            <FormFieldText form={form} name="name" label={t("name")} />
+            <FormFieldPhone form={form} name="phone" label={t("phone")} />
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+
           <FormFieldText form={form} name="email" label={t("email")} />
-          <FormFieldTextarea form={form} name="address" label={t("address")} />
           <FormFieldSelect
             form={form}
             name="category"
             label={t("category")}
-            options={[]}
+            options={[{
+              label:"Test",
+              value:"test"
+            }]}
           />
+          </div>
+          <FormFieldTextarea form={form} name="address" label={t("address")} />
           <FormFieldSelect
             form={form}
             name="status"
