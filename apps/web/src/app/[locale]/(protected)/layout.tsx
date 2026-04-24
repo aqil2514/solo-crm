@@ -35,7 +35,7 @@ export default async function ProtectedLayout({
   
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <SidebarProvider>
+      <SidebarProvider className="bg-zinc-50/50">
         <ProtectedSidebar />
         <SidebarInset>
           <Header />

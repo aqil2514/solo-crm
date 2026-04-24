@@ -20,7 +20,7 @@ export function ProtectedSidebar() {
   const t = useTranslations("sidebar");
 
   return (
-    <Sidebar variant="sidebar" collapsible="icon">
+    <Sidebar variant="sidebar" collapsible="icon" className="bg-zinc-950">
       <SidebarHeader className="h-16 flex items-center justify-start border-b">
         <div className="flex items-center gap-3">
           <div className="flex h-7 w-7 items-center justify-center rounded-md bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-950 font-bold text-sm">
