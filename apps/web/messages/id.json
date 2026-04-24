@@ -43,5 +43,49 @@
     "english": "English",
     "indonesian": "Bahasa Indonesia",
     "main_menu": "Menu Utama"
+  },
+  "forms": {
+    "submitButton": "Simpan",
+    "submitting": "Menyimpan...",
+    "validationError": "Ada data yang belum diisi",
+    "fieldPlaceholder": "Isi field ini",
+    "selectPlaceholder": "Pilih salah satu",
+    "datePlaceholder": "Pilih tanggal",
+    "tagsPlaceholder": "Ketik lalu tekan Enter...",
+    "passwordStrength": {
+      "weak": "Lemah",
+      "medium": "Cukup",
+      "strong": "Kuat",
+      "veryStrong": "Sangat Kuat"
+    },
+    "passwordVisibility": {
+      "show": "Tampilkan password",
+      "hide": "Sembunyikan password"
+    },
+    "tagAction": {
+      "removeTag": "Hapus tag",
+      "instruction": "Tekan",
+      "instructionOr": "atau",
+      "instructionEnd": "untuk menambah tag"
+    }
+  },
+  "customers": {
+    "title": "Pelanggan",
+    "description": "Kelola data pelanggan dan riwayat transaksi mereka di sini.",
+    "addButton": "Tambah Pelanggan",
+    "dialog": {
+      "addTitle": "Tambah Pelanggan Baru",
+      "addDescription": "Masukkan detail pelanggan Anda di sini. Klik simpan jika sudah selesai."
+    },
+    "form": {
+      "name": "Nama",
+      "phone": "No. WhatsApp",
+      "email": "Email",
+      "address": "Alamat",
+      "category": "Kategori",
+      "status": "Status",
+      "notes": "Catatan",
+      "tags": "Tags"
+    }
   }
 }

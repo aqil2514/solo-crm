@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { CustomerProvider } from "./provider/customer.provider";
 import { useQueryState } from "@/hooks/use-query-state";
 import { DialogCustomerAdd } from "./dialogs/add";
+import { useTranslations } from "next-intl";
 
 export function CustomerTemplate() {
   return (
@@ -16,14 +17,15 @@ export function CustomerTemplate() {
 
 const InnerTemplate = () => {
   const { set } = useQueryState();
+  const t = useTranslations("customers");
   return (
     <>
       <MainContainer>
         <PageHeader
-          title="Pelanggan"
-          description="Kelola data pelanggan dan riwayat transaksi mereka di sini."
+          title={t("title")}
+          description={t("description")}
         />
-        <Button onClick={() => set("dialog", "add")}>Tambah Pelanggan</Button>
+        <Button onClick={() => set("dialog", "add")}>{t("addButton")}</Button>
       </MainContainer>
 
       <DialogCustomerAdd />

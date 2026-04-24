@@ -43,3 +43,14 @@ export const customerSchema = z.object({
 
 // Infer type untuk keperluan TypeScript
 export type CustomerSchema = z.infer<typeof customerSchema>;
+
+export const defaultValuesCustomer: CustomerSchema = {
+  category: "",
+  name: "",
+  status: "",
+  tags: [],
+  address: "",
+  email: "",
+  notes: "",
+  phone: "",
+};

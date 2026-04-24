@@ -43,5 +43,49 @@
     "english": "English",
     "indonesian": "Bahasa Indonesia",
     "main_menu": "Main Menu"
+  },
+  "forms": {
+    "submitButton": "Save",
+    "submitting": "Saving...",
+    "validationError": "Please fill in all required fields",
+    "fieldPlaceholder": "Fill this field",
+    "selectPlaceholder": "Choose one",
+    "datePlaceholder": "Select a date",
+    "tagsPlaceholder": "Type then press Enter...",
+    "passwordStrength": {
+      "weak": "Weak",
+      "medium": "Fair",
+      "strong": "Strong",
+      "veryStrong": "Very Strong"
+    },
+    "passwordVisibility": {
+      "show": "Show password",
+      "hide": "Hide password"
+    },
+    "tagAction": {
+      "removeTag": "Delete tag",
+      "instruction": "Press",
+      "instructionOr": "or",
+      "instructionEnd": "to add a tag"
+    }
+  },
+  "customers": {
+    "title": "Customers",
+    "description": "Manage customer data and their transaction history here.",
+    "addButton": "Add Customer",
+    "dialog": {
+      "addTitle": "Add New Customer",
+      "addDescription": "Enter your customer details here. Click save when done."
+    },
+    "form": {
+      "name": "Name",
+      "phone": "WhatsApp Number",
+      "email": "Email",
+      "address": "Address",
+      "category": "Category",
+      "status": "Status",
+      "notes": "Notes",
+      "tags": "Tags"
+    }
   }
 }
