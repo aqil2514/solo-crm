@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  UseGuards,
+} from '@nestjs/common';
 import type { UserJwtPayload } from 'src/@types/auth';
 import { User } from 'src/decorator/user.decorator';
 import { JwtAuthGuard } from 'src/guards/jwt-auth.guard';
@@ -36,5 +44,14 @@ export class CustomerCategoriesController {
   ) {
     const data = await this.service.getCustomerCategoryById(user.sub, id);
     return data;
+  }
+
+  @Delete(':id')
+  async deleteCustomerCategoryById(
+    @User() user: UserJwtPayload,
+    @Param('id') id: number,
+  ) {
+    await this.service.deleteCustomerCategories(user.sub, id);
+    return { success: true };
   }
 }

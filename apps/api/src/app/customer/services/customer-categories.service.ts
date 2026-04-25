@@ -43,4 +43,13 @@ export class CustomerCategoriesService {
   ) {
     await this.prisma.customerCategory.create({ data: payload });
   }
+
+  async deleteCustomerCategories(userId: string, categoryId: number) {
+    await this.prisma.customerCategory.delete({
+      where: {
+        id: categoryId,
+        user_id: userId,
+      },
+    });
+  }
 }
