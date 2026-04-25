@@ -7,6 +7,7 @@ import { CustomerCategoriesProvider } from "./provider/customer.provider";
 import { CustomerCategoryAddDialog } from "./components/dialogs/add";
 import { CustomerCategoryTable } from "./components/table";
 import { CustomerCategoryDeleteDialog } from "./components/dialogs/delete";
+import { CustomerCategoryEditDialog } from "./components/dialogs/edit";
 
 export function CustomerCategoryTemplate() {
   return (
@@ -31,6 +32,7 @@ const InnerTemplate = () => {
       </MainContainer>
 
       <CustomerCategoryAddDialog />
+      <CustomerCategoryEditDialog />
       <CustomerCategoryDeleteDialog />
     </>
   );

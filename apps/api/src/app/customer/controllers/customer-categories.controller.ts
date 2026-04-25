@@ -4,6 +4,7 @@ import {
   Delete,
   Get,
   Param,
+  Patch,
   Post,
   UseGuards,
 } from '@nestjs/common';
@@ -44,6 +45,22 @@ export class CustomerCategoriesController {
   ) {
     const data = await this.service.getCustomerCategoryById(user.sub, id);
     return data;
+  }
+
+  @Patch(':id')
+  async updateCustomerCategoryById(
+    @User() user: UserJwtPayload,
+    @Param('id') id: number,
+    @Body() body: CustomerCategoriesDto,
+  ) {
+    await this.service.updateCustomerCategories(
+      user.sub,
+      id,
+      body.name,
+      body.description,
+    );
+
+    return { success: true };
   }
 
   @Delete(':id')

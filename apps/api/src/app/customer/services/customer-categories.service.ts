@@ -52,4 +52,22 @@ export class CustomerCategoriesService {
       },
     });
   }
+
+  async updateCustomerCategories(
+    userId: string,
+    oldId: number,
+    name: string,
+    description?: string,
+  ) {
+    await this.prisma.customerCategory.update({
+      where: {
+        id: oldId,
+        user_id: userId,
+      },
+      data: {
+        name,
+        description,
+      },
+    });
+  }
 }
