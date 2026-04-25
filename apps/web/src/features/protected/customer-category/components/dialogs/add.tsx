@@ -1,46 +1,33 @@
-import { BaseDialog } from "@/components/molecules/base-dialog";
-import { useQueryState } from "@/hooks/use-query-state";
+import { BaseAddDialog } from "@/components/molecules/base-add-dialog";
 import { CustomerCategoryForm } from "../forms";
 import { CustomerCategorySchemaType } from "../../schema/customer-category.schema";
-import { api } from "@/lib/api";
-import { toast } from "react-toastify";
 import { useCustomerCategoriesData } from "../../provider/customer.provider";
-import { getErrorMessage } from "@/lib/toast/error";
+import { useTranslations } from "next-intl";
+import { useResourceAction } from "@/hooks/use-resources-action";
 
 export function CustomerCategoryAddDialog() {
   const { refetch } = useCustomerCategoriesData();
-  const { get, remove } = useQueryState();
-  const open = get("dialog") === "add";
-  const handleClose = (open: boolean) => {
-    if (!open) return remove("dialog");
-  };
+  const t = useTranslations("customer_categories");
 
-  const submitHandler = async (values: CustomerCategorySchemaType) => {
-    await toast
-      .promise(api.post("/customer/categories", values), {
-        pending: "Sedang menambah kategori...",
-        success: "Kategori berhasil ditambah",
-        error: {
-          render({ data }) {
-            return getErrorMessage(data);
-          },
-        },
-      })
-      .then(() => {
-        refetch();
-        remove("dialog");
-      });
-  };
+  const { isOpen, handleClose, performAction } =
+    useResourceAction<CustomerCategorySchemaType>({
+      resourceKey: "customer-category",
+      endpoint: "/customer/categories",
+      dialogType: "add",
+      refetchList: refetch,
+      translations: {
+        pending: t("toast.addPending"),
+        success: t("toast.addSuccess"),
+      },
+    });
 
   return (
-    <BaseDialog
-      open={open}
+    <BaseAddDialog
+      open={isOpen}
       onOpenChange={handleClose}
-      title="Tambah Kategori Pelanggan"
-      description="Berikan kategori agar mudah manajemennya"
-      size="lg"
-    >
-      <CustomerCategoryForm onSubmit={submitHandler} />
-    </BaseDialog>
+      title={t("dialog.addTitle")}
+      description={t("dialog.addDescription")}
+      renderForm={() => <CustomerCategoryForm onSubmit={performAction} />}
+    />
   );
 }

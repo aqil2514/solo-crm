@@ -91,5 +91,48 @@
       "notes": "Notes",
       "tags": "Tags"
     }
+  },
+  "customer_categories": {
+    "title": "Customer Categories",
+    "description": "Manage customer categories here.",
+    "addButton": "Add Category",
+    "dialog": {
+      "addTitle": "Add Customer Category",
+      "addDescription": "Create a new category for your customers.",
+      "editTitle": "Edit Customer Category",
+      "editDescription": "Modify the existing customer category.",
+      "deleteTitle": "Delete Category",
+      "deleteDescription": "Deleted data cannot be restored. The category for customers with this category will also be changed to not set."
+    },
+    "form": {
+      "name": "Category Name",
+      "description": "Description",
+      "namePlaceholder": "e.g. VIP Customer...",
+      "descriptionPlaceholder": "Customers who have made repeat orders"
+    },
+    "table": {
+      "name": "Category Name",
+      "description": "Description",
+      "noDescription": "No description available"
+    },
+    "actions": {
+      "edit": "Edit Data",
+      "delete": "Delete"
+    },
+    "toast": {
+      "addPending": "Adding category...",
+      "addSuccess": "Category added successfully",
+      "editPending": "Updating category...",
+      "editSuccess": "Category updated successfully",
+      "deletePending": "Deleting data...",
+      "deleteSuccess": "Data deleted successfully"
+    }
+  },
+  "delete_dialog": {
+    "title": "Delete Data",
+    "description": "This action cannot be undone. All related data will be permanently deleted.",
+    "cancel": "Cancel",
+    "confirm": "Yes, Delete",
+    "loading": "Deleting..."
   }
 }

@@ -91,5 +91,48 @@
       "notes": "Catatan",
       "tags": "Tags"
     }
+  },
+  "customer_categories": {
+    "title": "Kategori Pelanggan",
+    "description": "Atur kategori untuk pelanggan Anda",
+    "addButton": "Tambah Kategori",
+    "dialog": {
+      "addTitle": "Tambah Kategori Pelanggan",
+      "addDescription": "Berikan kategori agar mudah manajemennya",
+      "editTitle": "Edit Kategori Pelanggan",
+      "editDescription": "Ubah kategori pelanggan yang sudah ada",
+      "deleteTitle": "Hapus Kategori",
+      "deleteDescription": "Data yang dihapus tidak akan dikembalikan. Kategori dari pelanggan dengan kategori ini pun akan diubah menjadi belum disetting"
+    },
+    "form": {
+      "name": "Nama Kategori",
+      "description": "Deskripsi",
+      "namePlaceholder": "Misal : John...",
+      "descriptionPlaceholder": "Pelanggan yang sudah repeat order"
+    },
+    "table": {
+      "name": "Nama Kategori",
+      "description": "Keterangan",
+      "noDescription": "Belum ada keterangan"
+    },
+    "actions": {
+      "edit": "Edit Data",
+      "delete": "Hapus"
+    },
+    "toast": {
+      "addPending": "Sedang menambah kategori...",
+      "addSuccess": "Kategori berhasil ditambah",
+      "editPending": "Sedang update kategori...",
+      "editSuccess": "Kategori berhasil diupdate",
+      "deletePending": "Menghapus Data...",
+      "deleteSuccess": "Data berhasil dihapus"
+    }
+  },
+  "delete_dialog": {
+    "title": "Hapus Data",
+    "description": "Aksi ini tidak dapat dibatalkan. Seluruh data terkait akan dihapus secara permanen.",
+    "cancel": "Batal",
+    "confirm": "Ya, Hapus",
+    "loading": "Menghapus..."
   }
 }

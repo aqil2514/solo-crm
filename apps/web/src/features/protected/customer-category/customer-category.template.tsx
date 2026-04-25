@@ -8,6 +8,7 @@ import { CustomerCategoryAddDialog } from "./components/dialogs/add";
 import { CustomerCategoryTable } from "./components/table";
 import { CustomerCategoryDeleteDialog } from "./components/dialogs/delete";
 import { CustomerCategoryEditDialog } from "./components/dialogs/edit";
+import { useTranslations } from "next-intl";
 
 export function CustomerCategoryTemplate() {
   return (
@@ -19,14 +20,15 @@ export function CustomerCategoryTemplate() {
 
 const InnerTemplate = () => {
   const { set } = useQueryState();
+  const t = useTranslations("customer_categories");
   return (
     <>
       <MainContainer>
         <PageHeader
-          title="Kategori Pelanggan"
-          description="Atur kategori untuk pelanggan Anda"
+          title={t("title")}
+          description={t("description")}
         />
-        <Button onClick={() => set("dialog", "add")}>Tambah Kategori</Button>
+        <Button onClick={() => set("dialog", "add")}>{t("addButton")}</Button>
 
         <CustomerCategoryTable />
       </MainContainer>

@@ -4,6 +4,7 @@ import {
   CustomerCategorySchemaType,
   defaultCustomerCategory,
 } from "../../schema/customer-category.schema";
+import { useTranslations } from "next-intl";
 
 interface Props {
   defaultValues?: CustomerCategorySchemaType;
@@ -11,6 +12,7 @@ interface Props {
 }
 
 export function CustomerCategoryForm({ onSubmit, defaultValues }: Props) {
+  const t = useTranslations("customer_categories.form");
   return (
     <BaseForm
       schema={customerCategorySchema}
@@ -22,15 +24,15 @@ export function CustomerCategoryForm({ onSubmit, defaultValues }: Props) {
           <FormFieldText
             form={form}
             name="name"
-            label="Nama Pelanggan"
-            placeholder="Misal : John..."
+            label={t("name")}
+            placeholder={t("namePlaceholder")}
           />
 
           <FormFieldTextarea
             form={form}
             name="description"
-            label="Deskripsi"
-            placeholder="Pelanggan yang sudah repeat order"
+            label={t("description")}
+            placeholder={t("descriptionPlaceholder")}
           />
         </>
       )}

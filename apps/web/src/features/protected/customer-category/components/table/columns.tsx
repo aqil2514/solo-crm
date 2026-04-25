@@ -3,6 +3,7 @@ import { CustomerCategoryBase } from "../../interfaces/customer-category.interfa
 import { createActionColumn } from "@/components/tables/action-column";
 import { Edit, Trash } from "lucide-react";
 import { useQueryState } from "@/hooks/use-query-state";
+import { useTranslations } from "next-intl";
 
 const baseColumn: ColumnDef<CustomerCategoryBase>[] = [
   {
@@ -18,11 +19,25 @@ const baseColumn: ColumnDef<CustomerCategoryBase>[] = [
 
 export function useCustomerCategoryColumns() {
   const { update } = useQueryState();
+  const t = useTranslations("customer_categories");
+  const tTable = useTranslations("customer_categories.table");
+  const tActions = useTranslations("customer_categories.actions");
+
   const columns = createActionColumn<CustomerCategoryBase>({
-    columns: baseColumn,
+    columns: [
+      {
+        accessorKey: "name",
+        header: tTable("name"),
+      },
+      {
+        accessorKey: "description",
+        header: tTable("description"),
+        cell: ({ row }) => row.original.description ?? tTable("noDescription"),
+      },
+    ],
     getMenuItems: ({ id }) => [
       {
-        label: "Edit Data",
+        label: tActions("edit"),
         icon: Edit,
         onClick: () => {
           update({
@@ -33,7 +48,7 @@ export function useCustomerCategoryColumns() {
         variant:"info"
       },
       {
-        label: "Hapus",
+        label: tActions("delete"),
         icon: Trash,
         onClick: () => {
           update({

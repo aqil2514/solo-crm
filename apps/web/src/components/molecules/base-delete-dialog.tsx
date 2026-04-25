@@ -3,28 +3,83 @@ import { ButtonLoading } from "@/components/atoms/button-loading";
 import { BaseDialog } from "@/components/molecules/base-dialog";
 import { Button } from "@/components/ui/button";
 import { ReactNode } from "react";
+import { useTranslations } from "next-intl";
 
+/**
+ * Props untuk komponen `BaseDeleteDialog`.
+ * Menyediakan struktur dialog generik untuk aksi hapus suatu resource,
+ * dengan dukungan dua mode tampilan info dan loading skeleton.
+ */
 interface BaseDeleteDialogProps {
+  /** Apakah dialog sedang terbuka. */
   open: boolean;
+
+  /**
+   * Callback yang dipanggil saat state dialog berubah.
+   * @param open - `true` jika dialog dibuka, `false` jika ditutup
+   */
   onOpenChange: (open: boolean) => void;
+
+  /**
+   * Judul yang ditampilkan di header dialog.
+   */
   title?: string;
+
+  /**
+   * Deskripsi yang ditampilkan di bawah judul.
+   */
   description?: string;
+
+  /**
+   * Apakah data resource sedang di-fetch.
+   * Jika `true`, menampilkan loading skeleton sebagai pengganti info resource.
+   */
   isLoadingData?: boolean;
+
+  /**
+   * Apakah proses hapus sedang berjalan.
+   * Jika `true`, tombol konfirmasi menampilkan loading dan tombol batal di-disable.
+   */
   isDeleting?: boolean;
+
+  /** Callback yang dipanggil saat user mengkonfirmasi penghapusan. */
   onConfirm: () => void;
-  // Mode 1: Kirim data mentah untuk auto-mapping
+
+  /**
+   * **Mode 1** — Data mentah resource yang akan ditampilkan sebagai list key-value.
+   * Key yang termasuk `ignoredKeys` (seperti `id`, `created_at`) akan dilewati otomatis.
+   * Gunakan prop `template` untuk mengatur label yang ditampilkan.
+   *
+   * @example
+   * data={{ name: "Kategori A", description: "Deskripsi" }}
+   */
   data?: Record<string, any>;
-  // Mode 2: Custom render jika butuh tampilan beda
+
+  /**
+   * **Mode 2** — Custom render untuk menampilkan info resource dengan tampilan kustom.
+   * Jika disediakan, `renderInfo` diprioritaskan di atas `data`.
+   *
+   * @example
+   * renderInfo={<p className="text-sm">{category.name}</p>}
+   */
   renderInfo?: ReactNode;
-  // Opsional: Label untuk mapping data
+
+  /**
+   * Pemetaan key data ke label yang ditampilkan, digunakan bersama prop `data`.
+   * Jika disediakan, hanya key yang terdaftar di sini yang akan ditampilkan.
+   * Jika tidak disediakan, semua key dari `data` akan ditampilkan dengan format otomatis.
+   *
+   * @example
+   * template={{ name: "Nama Kategori", description: "Deskripsi" }}
+   */
   template?: Record<string, string>;
 }
 
 export function BaseDeleteDialog({
   open,
   onOpenChange,
-  title = "Hapus Data",
-  description = "Aksi ini tidak dapat dibatalkan. Seluruh data terkait akan dihapus secara permanen.",
+  title,
+  description,
   isLoadingData,
   isDeleting,
   onConfirm,
@@ -32,7 +87,10 @@ export function BaseDeleteDialog({
   renderInfo,
   template,
 }: BaseDeleteDialogProps) {
-  
+  const t = useTranslations("delete_dialog");
+  const defaultTitle = t("title");
+  const defaultDescription = t("description");
+
   // Fungsi internal untuk merender list key-value jika data disediakan
   const renderDataList = () => {
     if (!data) return null;
@@ -65,8 +123,8 @@ export function BaseDeleteDialog({
     <BaseDialog
       open={open}
       onOpenChange={onOpenChange}
-      title={title}
-      description={description}
+      title={title ?? defaultTitle}
+      description={description ?? defaultDescription}
       variant="danger"
       size="md"
     >
@@ -90,15 +148,16 @@ export function BaseDeleteDialog({
             disabled={isDeleting}
             className="text-zinc-500"
           >
-            Batal
+            {t("cancel")}
           </Button>
           <ButtonLoading
             variant="destructive"
             onClick={onConfirm}
             isLoading={isDeleting}
-            loadingText="Menghapus..."
+            disabled={isDeleting || isLoadingData}
+            loadingText={t("loading")}
           >
-            Ya, Hapus
+            {t("confirm")}
           </ButtonLoading>
         </div>
       </div>
