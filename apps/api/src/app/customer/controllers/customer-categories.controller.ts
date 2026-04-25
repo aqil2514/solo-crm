@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import type { UserJwtPayload } from 'src/@types/auth';
 import { User } from 'src/decorator/user.decorator';
 import { JwtAuthGuard } from 'src/guards/jwt-auth.guard';
@@ -12,8 +12,6 @@ export class CustomerCategoriesController {
   @Get()
   async getCustomerCategories(@User() user: UserJwtPayload) {
     const data = await this.service.getCustomerCategories(user.sub);
-
-    console.log(data);
 
     return data;
   }
@@ -29,5 +27,14 @@ export class CustomerCategoriesController {
       description: body.description,
     });
     return { success: true };
+  }
+
+  @Get(':id')
+  async getCustomerCategoryById(
+    @User() user: UserJwtPayload,
+    @Param('id') id: number,
+  ) {
+    const data = await this.service.getCustomerCategoryById(user.sub, id);
+    return data;
   }
 }

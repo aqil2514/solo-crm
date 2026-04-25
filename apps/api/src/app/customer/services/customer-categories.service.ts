@@ -8,11 +8,34 @@ export class CustomerCategoriesService {
 
   async getCustomerCategories(userId: string) {
     const categories = await this.prisma.customerCategory.findMany({
+      select: {
+        name: true,
+        id: true,
+        description: true,
+        user_id: false,
+      },
       where: {
         user_id: userId,
       },
     });
     return categories;
+  }
+
+  async getCustomerCategoryById(userId: string, categoryId: number) {
+    const category = await this.prisma.customerCategory.findUnique({
+      where: {
+        user_id: userId,
+        id: categoryId,
+      },
+      select: {
+        name: true,
+        id: true,
+        description: true,
+        user_id: false,
+      },
+    });
+
+    return category;
   }
 
   async createNewCustomerCategories(
