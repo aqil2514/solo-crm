@@ -1,15 +1,15 @@
-import { CustomerCategoryBase } from "../../interfaces/customer-category.interface";
 import { createActionColumn } from "@/components/tables/action-column";
 import { Edit, Trash } from "lucide-react";
 import { useQueryState } from "@/hooks/use-query-state";
 import { useTranslations } from "next-intl";
+import { CustomerStatusBase } from "../../interfaces/customer-status.interface";
 
-export function useCustomerCategoryColumns() {
+export function useCustomerStatusColumns() {
   const { update } = useQueryState();
-  const tTable = useTranslations("customer_categories.table");
-  const tActions = useTranslations("customer_categories.actions");
+  const tTable = useTranslations("customer_status.table");
+  const tActions = useTranslations("customer_status.actions");
 
-  const columns = createActionColumn<CustomerCategoryBase>({
+  const columns = createActionColumn<CustomerStatusBase>({
     columns: [
       {
         accessorKey: "name",
@@ -28,7 +28,7 @@ export function useCustomerCategoryColumns() {
         onClick: () => {
           update({
             dialog: "edit",
-            categoryId: id,
+            statusId: id,
           });
         },
         variant: "info",
@@ -39,13 +39,13 @@ export function useCustomerCategoryColumns() {
         onClick: () => {
           update({
             dialog: "delete",
-            categoryId: id,
+            statusId: id,
           });
         },
         variant: "danger",
       },
     ],
-    dropdownLabel: ({ name }) => `Kategori ${name}`,
+    dropdownLabel: ({ name }) => `Status ${name}`,
     position: "start",
     actionAlignment: "left",
   });

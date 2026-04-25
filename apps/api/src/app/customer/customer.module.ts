@@ -3,9 +3,10 @@ import { CustomerListController } from './controllers/customer.controller';
 import { CustomerCategoriesController } from './controllers/customer-categories.controller';
 import { CustomerCategoriesService } from './services/customer-categories.service';
 import { CustomerStatusController } from './controllers/customer-status.controller';
+import { CustomerStatusService } from './services/customer-status.service';
 
 @Module({
-  providers: [CustomerCategoriesService],
+  providers: [CustomerCategoriesService, CustomerStatusService],
   controllers: [
     CustomerListController,
     CustomerCategoriesController,

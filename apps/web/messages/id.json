@@ -128,6 +128,42 @@
       "deleteSuccess": "Data berhasil dihapus"
     }
   },
+  "customer_status": {
+    "title": "Status Pelanggan",
+    "description": "Atur status pelanggan Anda",
+    "addButton": "Tambah Status",
+    "dialog": {
+      "addTitle": "Tambah Status Pelanggan",
+      "addDescription": "Berikan status agar mudah manajemennya",
+      "editTitle": "Edit Status Pelanggan",
+      "editDescription": "Ubah status pelanggan yang sudah ada",
+      "deleteTitle": "Hapus Status",
+      "deleteDescription": "Data yang dihapus tidak akan dikembalikan. Status dari pelanggan dengan status ini pun akan diubah menjadi belum disetting"
+    },
+    "form": {
+      "name": "Nama Status",
+      "description": "Deskripsi",
+      "namePlaceholder": "Misal : Aktif...",
+      "descriptionPlaceholder": "Pelanggan yang sedang aktif"
+    },
+    "table": {
+      "name": "Nama Status",
+      "description": "Keterangan",
+      "noDescription": "Belum ada keterangan"
+    },
+    "actions": {
+      "edit": "Edit Data",
+      "delete": "Hapus"
+    },
+    "toast": {
+      "addPending": "Sedang menambah status...",
+      "addSuccess": "Status berhasil ditambah",
+      "editPending": "Sedang update status...",
+      "editSuccess": "Status berhasil diupdate",
+      "deletePending": "Menghapus Data...",
+      "deleteSuccess": "Data berhasil dihapus"
+    }
+  },
   "delete_dialog": {
     "title": "Hapus Data",
     "description": "Aksi ini tidak dapat dibatalkan. Seluruh data terkait akan dihapus secara permanen.",

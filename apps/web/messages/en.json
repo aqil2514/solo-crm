@@ -128,6 +128,42 @@
       "deleteSuccess": "Data deleted successfully"
     }
   },
+  "customer_status": {
+    "title": "Customer Status",
+    "description": "Manage customer status here.",
+    "addButton": "Add Status",
+    "dialog": {
+      "addTitle": "Add Customer Status",
+      "addDescription": "Create a new status for your customers.",
+      "editTitle": "Edit Customer Status",
+      "editDescription": "Modify the existing customer status.",
+      "deleteTitle": "Delete Status",
+      "deleteDescription": "Deleted data cannot be restored. The status for customers with this status will also be changed to not set."
+    },
+    "form": {
+      "name": "Status Name",
+      "description": "Description",
+      "namePlaceholder": "e.g. Active Customer...",
+      "descriptionPlaceholder": "Customers who are currently active"
+    },
+    "table": {
+      "name": "Status Name",
+      "description": "Description",
+      "noDescription": "No description available"
+    },
+    "actions": {
+      "edit": "Edit Data",
+      "delete": "Delete"
+    },
+    "toast": {
+      "addPending": "Adding status...",
+      "addSuccess": "Status added successfully",
+      "editPending": "Updating status...",
+      "editSuccess": "Status updated successfully",
+      "deletePending": "Deleting data...",
+      "deleteSuccess": "Data deleted successfully"
+    }
+  },
   "delete_dialog": {
     "title": "Delete Data",
     "description": "This action cannot be undone. All related data will be permanently deleted.",
