@@ -21,12 +21,13 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { SIDEBAR_MENU_ITEMS } from "./menu-items";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation"; // Import usePathname
 import { LanguageSwitcher } from "./language-switcher";
-import { ChevronRight } from "lucide-react"; // Import icon untuk indikator dropdown
+import { ChevronRight } from "lucide-react";
 
 export function ProtectedSidebar() {
   const t = useTranslations("sidebar");
+  const pathname = usePathname(); // Ambil path saat ini
 
   return (
     <Sidebar variant="sidebar" collapsible="icon" className="bg-zinc-950">
@@ -47,14 +48,26 @@ export function ProtectedSidebar() {
           <SidebarMenu>
             {SIDEBAR_MENU_ITEMS.map((item) => {
               const hasChildren = item.children && item.children.length > 0;
+              
+              // Cek apakah path saat ini sama dengan href menu utama
+              const isParentActive = pathname === item.href;
+              
+              // Cek apakah ada anak dari menu ini yang sedang aktif
+              const isChildActive = item.children?.some((child) => pathname === child.href);
 
               if (!hasChildren) {
                 return (
                   <SidebarMenuItem key={item.id}>
-                    <SidebarMenuButton asChild tooltip={t(item.labelKey)}>
+                    <SidebarMenuButton 
+                      asChild 
+                      tooltip={t(item.labelKey)}
+                      isActive={isParentActive} // Shadcn Sidebar mendukung prop isActive
+                    >
                       <Link href={item.href} className="flex items-center gap-3 py-5">
-                        <item.icon className="w-5 h-5 opacity-70" />
-                        <span className="font-medium">{t(item.labelKey)}</span>
+                        <item.icon className={`w-5 h-5 ${isParentActive ? "opacity-100" : "opacity-70"}`} />
+                        <span className={isParentActive ? "font-bold" : "font-medium"}>
+                          {t(item.labelKey)}
+                        </span>
                       </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
@@ -66,26 +79,37 @@ export function ProtectedSidebar() {
                   key={item.id}
                   asChild
                   className="group/collapsible"
+                  defaultOpen={isChildActive} // Buka otomatis jika ada anak yang aktif
                 >
                   <SidebarMenuItem>
                     <CollapsibleTrigger asChild>
-                      <SidebarMenuButton tooltip={t(item.labelKey)}>
-                        <item.icon className="w-5 h-5 opacity-70" />
-                        <span className="font-medium">{t(item.labelKey)}</span>
+                      <SidebarMenuButton 
+                        tooltip={t(item.labelKey)}
+                        isActive={isChildActive} // Tandai parent jika anaknya aktif
+                      >
+                        <item.icon className={`w-5 h-5 ${isChildActive ? "opacity-100" : "opacity-70"}`} />
+                        <span className={isChildActive ? "font-bold" : "font-medium"}>
+                          {t(item.labelKey)}
+                        </span>
                         <ChevronRight className="ml-auto h-4 w-4 transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                       </SidebarMenuButton>
                     </CollapsibleTrigger>
                     <CollapsibleContent>
                       <SidebarMenuSub>
-                        {item.children?.map((child) => (
-                          <SidebarMenuSubItem key={child.id}>
-                            <SidebarMenuSubButton asChild>
-                              <Link href={child.href}>
-                                <span>{t(child.labelKey)}</span>
-                              </Link>
-                            </SidebarMenuSubButton>
-                          </SidebarMenuSubItem>
-                        ))}
+                        {item.children?.map((child) => {
+                          const isSubActive = pathname === child.href;
+                          return (
+                            <SidebarMenuSubItem key={child.id}>
+                              <SidebarMenuSubButton asChild isActive={isSubActive}>
+                                <Link href={child.href}>
+                                  <span className={isSubActive ? "font-bold text-slate-500" : ""}>
+                                    {t(child.labelKey)}
+                                  </span>
+                                </Link>
+                              </SidebarMenuSubButton>
+                            </SidebarMenuSubItem>
+                          );
+                        })}
                       </SidebarMenuSub>
                     </CollapsibleContent>
                   </SidebarMenuItem>

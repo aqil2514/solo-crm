@@ -5,7 +5,7 @@ import { getLocale } from "next-intl/server";
 export async function generateMetadata():Promise<Metadata>{
     const locale = await getLocale()
     return {
-        title: locale === "en" ? "Customer" : "Pelanggan"
+        title: locale === "en" ? "Customer List" : "Daftar Pelanggan"
     }
 }
 
