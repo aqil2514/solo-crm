@@ -4,7 +4,7 @@ import { Strategy } from 'passport-google-oauth2';
 import { VerifiedCallback } from 'passport-jwt';
 import { UserProfile, GoogleProfile } from 'src/@types/auth';
 import { AuthProfileService } from '../services/auth-profile.service';
-import { Prisma } from 'generated/prisma/client';
+import { Prisma } from 'prisma/generated/prisma/client';
 
 @Injectable()
 export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {

@@ -1,0 +1,51 @@
+{
+  "version": "0.2.12",
+  "notes": "## Changes\nSee commits for details.\n\n## Downloads\n- **Windows**: `.msi` atau `.exe`\n- **macOS**: `.dmg`\n- **Linux**: `.deb` atau `.AppImage`",
+  "pub_date": "2026-04-25T01:05:20.749Z",
+  "platforms": {
+    "darwin-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTcHkyNDFNQVhxVFFtdU5ka3A3QkFXYlVuSkwzWGZDNVhQc2UzL0prbk0wRTUxSVdHUUJhR1BjQlRVOThpTUR4cCsvbmk0OVdrTWRFM1Fub1I1N08rblppT245M1NVUGc0PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzc3MDc4ODQxCWZpbGU6dGltZS10cmFjay5hcHAudGFyLmd6CkhFZmxIWUNNUXRaMFZLVThNMG1TS1dVbmtkbmkvR21KVUs2Z1UyQTNPN0RuK3FBVnY5THdJcWp4blVyTWVaWXZaR1FySE83RnVoRUxscGNoaDJwQkJBPT0K",
+      "url": "https://github.com/aqil2514/time-track-gass/releases/download/v0.2.12.1/time-track_x64.app.tar.gz"
+    },
+    "darwin-x86_64-app": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTcHkyNDFNQVhxVFFtdU5ka3A3QkFXYlVuSkwzWGZDNVhQc2UzL0prbk0wRTUxSVdHUUJhR1BjQlRVOThpTUR4cCsvbmk0OVdrTWRFM1Fub1I1N08rblppT245M1NVUGc0PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzc3MDc4ODQxCWZpbGU6dGltZS10cmFjay5hcHAudGFyLmd6CkhFZmxIWUNNUXRaMFZLVThNMG1TS1dVbmtkbmkvR21KVUs2Z1UyQTNPN0RuK3FBVnY5THdJcWp4blVyTWVaWXZaR1FySE83RnVoRUxscGNoaDJwQkJBPT0K",
+      "url": "https://github.com/aqil2514/time-track-gass/releases/download/v0.2.12.1/time-track_x64.app.tar.gz"
+    },
+    "darwin-aarch64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTcHkyNDFNQVhxVFNkOXF6aUx0eWRrTUZxU0lkZXhNbTZVcEpHYVFGNjNjckY5Ykh5bDhMckNBWUJ3ckE5UHBsMWNQc1VNemdIN3JlQ2IrRU8vM29TTkI0d1p2MUF6dmdrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzc3MDc4ODkwCWZpbGU6dGltZS10cmFjay5hcHAudGFyLmd6Cnp5QlNrNGdWRy9YQ1lFQjJ2NjdTK0lHQ3VxVUJuMi9pSkRVZHdnbVFka1dTQzhSeDRremM3Wkt4TVJyYy9uc2NSMDUvbUhkUEZ0UjIxK2hlcjRDa0J3PT0K",
+      "url": "https://github.com/aqil2514/time-track-gass/releases/download/v0.2.12.1/time-track_aarch64.app.tar.gz"
+    },
+    "darwin-aarch64-app": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTcHkyNDFNQVhxVFNkOXF6aUx0eWRrTUZxU0lkZXhNbTZVcEpHYVFGNjNjckY5Ykh5bDhMckNBWUJ3ckE5UHBsMWNQc1VNemdIN3JlQ2IrRU8vM29TTkI0d1p2MUF6dmdrPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzc3MDc4ODkwCWZpbGU6dGltZS10cmFjay5hcHAudGFyLmd6Cnp5QlNrNGdWRy9YQ1lFQjJ2NjdTK0lHQ3VxVUJuMi9pSkRVZHdnbVFka1dTQzhSeDRremM3Wkt4TVJyYy9uc2NSMDUvbUhkUEZ0UjIxK2hlcjRDa0J3PT0K",
+      "url": "https://github.com/aqil2514/time-track-gass/releases/download/v0.2.12.1/time-track_aarch64.app.tar.gz"
+    },
+    "linux-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTcHkyNDFNQVhxVGRjYWlMUXNQOTZGNytyRTlhaXhPeUg3SlZlZWhTaDBEWEtCL3pDdjJiMEc3ZUpuSEVicWVEY1hVSUNLdS9VMWVoVGN6UHBrNEltMzhra3BBV3IxK3cwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzc3MDc4OTg2CWZpbGU6dGltZS10cmFja18wLjIuMTJfYW1kNjQuQXBwSW1hZ2UKSER1VndUbGxGTjJWaFR6YWQ2RkpiNkd3c0JtZjljR1Q5Si9VZXhxeW0ydk5IbTZ6ZS8ydGpqSTFtaWFZMmwyMmJYemJBbGg5bE1GMlVBRmF1cTNaQ0E9PQo=",
+      "url": "https://github.com/aqil2514/time-track-gass/releases/download/v0.2.12.1/time-track_0.2.12_amd64.AppImage"
+    },
+    "linux-x86_64-appimage": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTcHkyNDFNQVhxVGRjYWlMUXNQOTZGNytyRTlhaXhPeUg3SlZlZWhTaDBEWEtCL3pDdjJiMEc3ZUpuSEVicWVEY1hVSUNLdS9VMWVoVGN6UHBrNEltMzhra3BBV3IxK3cwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzc3MDc4OTg2CWZpbGU6dGltZS10cmFja18wLjIuMTJfYW1kNjQuQXBwSW1hZ2UKSER1VndUbGxGTjJWaFR6YWQ2RkpiNkd3c0JtZjljR1Q5Si9VZXhxeW0ydk5IbTZ6ZS8ydGpqSTFtaWFZMmwyMmJYemJBbGg5bE1GMlVBRmF1cTNaQ0E9PQo=",
+      "url": "https://github.com/aqil2514/time-track-gass/releases/download/v0.2.12.1/time-track_0.2.12_amd64.AppImage"
+    },
+    "linux-x86_64-deb": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTcHkyNDFNQVhxVFlLL043WmxkZXJZb0Z2VmJWRy95OHVIbUQ4c0laRytOTTJZUUxyeUJGMEhtaVgxS2JkVkVKek5WVlU5dTZxbW1RNnRZRktxMXF5SlBOSTVoMFYwY1FJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzc3MDc4OTg2CWZpbGU6dGltZS10cmFja18wLjIuMTJfYW1kNjQuZGViCnRiYmJOZFhTUGNjYkJrL2NTR0lvN3lzQk1xcVUwRktEa0pKMytkeXpjQ0VsTWtaNHljRVVqSlJ5eDNZdzIyQWkwUEI4MHRPTTdaRGM3Mi9ndjZKL0JBPT0K",
+      "url": "https://github.com/aqil2514/time-track-gass/releases/download/v0.2.12.1/time-track_0.2.12_amd64.deb"
+    },
+    "linux-x86_64-rpm": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTcHkyNDFNQVhxVGJjb3paVVlWRk5OWGlOVUtLRjEycmJrdFFWbnU1YmE5WXhzTk9iY1JXNmdRU1RWVTVDWkRxWlNTNkwvWjM5U3NQaXJHSTJoMncyWmZHMURpN25aWWdjPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzc3MDc4OTg2CWZpbGU6dGltZS10cmFjay0wLjIuMTItMS54ODZfNjQucnBtCkFoblVNYVVOV2d1QmZWSnJnNDArKzJJS3pMTGV1WHVJbXFPVGZ6U1FMUlNqMXlQRWplNXQ5QWkrYTN0eDFCTmdLTWhsZnd3eklteWNYVkVWUkJwSURRPT0K",
+      "url": "https://github.com/aqil2514/time-track-gass/releases/download/v0.2.12.1/time-track-0.2.12-1.x86_64.rpm"
+    },
+    "windows-x86_64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTcHkyNDFNQVhxVGY3K0NMTXlCVDBIRG11MVlxaDFFUzZPT3pNZWVFMkxDVEFPZ0xuZE1zUEFiK1RhdS9nanhaV2VXbkRIelBXRWRIMlhnQ2gzYjE0OHJvY3prdUdIdEFVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzc3MDc5MTE3CWZpbGU6dGltZS10cmFja18wLjIuMTJfeDY0X2VuLVVTLm1zaQoxVVFpRFF5d1BRUW9GTFZqRkIrYWt3S2t2R3lZZGpod1ZIZFhLQ0sxOFBuUitLTWd0VTVMVnBxN2IyeHg4YzBpQ3doUFR5Tk9GYlJnVlFTdHdQZElDZz09Cg==",
+      "url": "https://github.com/aqil2514/time-track-gass/releases/download/v0.2.12.1/time-track_0.2.12_x64_en-US.msi"
+    },
+    "windows-x86_64-msi": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTcHkyNDFNQVhxVGY3K0NMTXlCVDBIRG11MVlxaDFFUzZPT3pNZWVFMkxDVEFPZ0xuZE1zUEFiK1RhdS9nanhaV2VXbkRIelBXRWRIMlhnQ2gzYjE0OHJvY3prdUdIdEFVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzc3MDc5MTE3CWZpbGU6dGltZS10cmFja18wLjIuMTJfeDY0X2VuLVVTLm1zaQoxVVFpRFF5d1BRUW9GTFZqRkIrYWt3S2t2R3lZZGpod1ZIZFhLQ0sxOFBuUitLTWd0VTVMVnBxN2IyeHg4YzBpQ3doUFR5Tk9GYlJnVlFTdHdQZElDZz09Cg==",
+      "url": "https://github.com/aqil2514/time-track-gass/releases/download/v0.2.12.1/time-track_0.2.12_x64_en-US.msi"
+    },
+    "windows-x86_64-nsis": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVTcHkyNDFNQVhxVFdKMDRDZmQvSUxEenkydlBjUy9OeEdWVnRNQmdXSFVBWVVwNUdCUEhxTnVKYWxWK0Y2RXNDZ3U0ZFZaVy93VVp1NjNUT2tCdlhIanZZNkRteU9JS2dZPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzc3MDc5MTE3CWZpbGU6dGltZS10cmFja18wLjIuMTJfeDY0LXNldHVwLmV4ZQpDd3VpaitmWG8ycEVwb3F2bFN3WmNFeUN5aDdaVmNPdmdCMEVrM3VWV1lnNVhCeS8yWUUzamlVdHZseXZJV0NvaDNTUG9kazd3SmtzY0FXb2lkeFBBZz09Cg==",
+      "url": "https://github.com/aqil2514/time-track-gass/releases/download/v0.2.12.1/time-track_0.2.12_x64-setup.exe"
+    }
+  }
+}

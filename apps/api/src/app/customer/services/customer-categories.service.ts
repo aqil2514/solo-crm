@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { Prisma } from 'prisma/generated/prisma/client';
 import { PrismaService } from 'src/services/prisma/prisma.service';
 
 @Injectable()
@@ -12,5 +13,11 @@ export class CustomerCategoriesService {
       },
     });
     return categories;
+  }
+
+  async createNewCustomerCategories(
+    payload: Prisma.CustomerCategoryUncheckedCreateInput,
+  ) {
+    await this.prisma.customerCategory.create({ data: payload });
   }
 }

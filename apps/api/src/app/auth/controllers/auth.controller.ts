@@ -4,7 +4,7 @@ import { AuthService } from '../services/auth.service';
 import type { Response } from 'express';
 import { JwtAuthGuard } from 'src/guards/jwt-auth.guard';
 import type { UserJwtPayload } from 'src/@types/auth';
-import { User as UserDb } from 'generated/prisma/client';
+import { User as UserDb } from 'prisma/generated/prisma/client';
 import { User } from 'src/decorator/user.decorator';
 
 @Controller('auth')
