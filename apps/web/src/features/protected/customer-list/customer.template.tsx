@@ -8,6 +8,7 @@ import { DialogCustomerAdd } from "./dialogs/add";
 import { DialogCustomerDelete } from "./dialogs/delete";
 import { CustomerTable } from "./components/table";
 import { useTranslations } from "next-intl";
+import { CustomerListEditDialog } from "./dialogs/edit";
 
 export function CustomerTemplate() {
   return (
@@ -34,6 +35,7 @@ const InnerTemplate = () => {
 
       <DialogCustomerAdd />
       <DialogCustomerDelete />
+      <CustomerListEditDialog />
     </>
   );
 };

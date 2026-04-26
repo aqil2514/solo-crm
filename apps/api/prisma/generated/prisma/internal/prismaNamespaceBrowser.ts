@@ -103,7 +103,8 @@ export const CustomersScalarFieldEnum = {
   address: 'address',
   status_id: 'status_id',
   notes: 'notes',
-  tags: 'tags'
+  tags: 'tags',
+  deleted_at: 'deleted_at'
 } as const
 
 export type CustomersScalarFieldEnum = (typeof CustomersScalarFieldEnum)[keyof typeof CustomersScalarFieldEnum]

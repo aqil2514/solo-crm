@@ -1,7 +1,7 @@
 import { BaseForm } from "@/components/forms/base-form";
 import {
   createCustomerSchema,
-  CustomerSchema,
+  CustomerSchemaInput,
   defaultValuesCustomer,
 } from "../schema/customer.schema";
 import {
@@ -18,7 +18,7 @@ import { CustomerStatusSelect } from "./customer-status";
 export function CustomerForm({
   onSubmit,
   defaultValues,
-}: BaseFormComponentProps<CustomerSchema>) {
+}: BaseFormComponentProps<CustomerSchemaInput>) {
   const t = useTranslations("customers");
   const customerSchema = createCustomerSchema(t);
   return (
@@ -33,10 +33,8 @@ export function CustomerForm({
             <FormFieldText form={form} name="name" label={t("form.name")} />
             <FormFieldPhone form={form} name="phone" label={t("form.phone")} />
           </div>
-          <div className="grid grid-cols-2 gap-4">
             <FormFieldText form={form} name="email" label={t("form.email")} />
             <CustomerCategorySelect form={form} />
-          </div>
           <FormFieldTextarea form={form} name="address" label={t("form.address")} />
           <CustomerStatusSelect form={form} />
           <FormFieldTextarea

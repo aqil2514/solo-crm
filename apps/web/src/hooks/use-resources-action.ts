@@ -104,15 +104,20 @@ export function useResourceAction<T>({
   const isOpen = get("dialog") === dialogType;
 
   /** Fetch hanya dijalankan saat edit atau delete, saat dialog terbuka dan ID tersedia. */
-  const { data, isLoading: isLoadingData } = useFetch<T>(
+  const {
+    data,
+    isLoading: isLoadingData,
+    refetch,
+  } = useFetch<T>(
     [`${resourceKey}-${id}`],
     `${endpoint}/${id}`,
-    !!id && isOpen
+    !!id && isOpen,
   );
 
   /** Menutup dialog dengan mereset query param `dialog` dan `id`. */
   const handleClose = (open?: boolean) => {
-    if (!open) update({ dialog: null, id: null });
+    if (!open)
+      update({ dialog: null, ...(idParamKey ? { [idParamKey]: null } : {}) });
   };
 
   /**
@@ -145,6 +150,7 @@ export function useResourceAction<T>({
         },
       });
 
+      refetch();
       refetchList();
       handleClose();
     } catch {

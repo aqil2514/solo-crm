@@ -1,5 +1,5 @@
 import { createActionColumn } from "@/components/tables/action-column";
-import { Trash } from "lucide-react";
+import { Edit, Trash } from "lucide-react";
 import { useQueryState } from "@/hooks/use-query-state";
 import { useTranslations } from "next-intl";
 import { CustomerBase } from "../../interfaces/customer.interface";
@@ -48,6 +48,17 @@ export function useCustomerColumns() {
       },
     ],
     getMenuItems: ({ id }) => [
+      {
+        label: "Edit",
+        icon: Edit,
+        onClick: () => {
+          update({
+            dialog: "edit",
+            customerId: id,
+          });
+        },
+        variant: "info",
+      },
       {
         label: tActions("delete"),
         icon: Trash,

@@ -19,6 +19,35 @@ export class CustomerService {
     });
   }
 
+  private async updateCustomer(
+    userId: string,
+    customerId: string,
+    body: CreateCustomerDto,
+    newCategory?: number,
+    newStatus?: number,
+  ) {
+    await this.prisma.customers.update({
+      data: {
+        address: body.address,
+        category: {
+          connect: { id: newCategory ?? Number(body.category) },
+        },
+        email: body.email,
+        name: body.name,
+        notes: body.notes,
+        phone_number: body.phone,
+        status: {
+          connect: { id: newStatus ?? Number(body.status) },
+        },
+        tags: body.tags,
+      },
+      where: {
+        id: customerId,
+        user_id: userId,
+      },
+    });
+  }
+
   async createCustomerService(userId: string, payload: CreateCustomerDto) {
     const isNewCategory = payload.category === '__add_new__';
     const isNewStatus = payload.status === '__add_new__';
@@ -29,6 +58,7 @@ export class CustomerService {
       const category = await this.category.createNewCustomerCategories({
         name: payload.newCategory,
         user_id: userId,
+        description: 'Ditambahkan secara otomatis melalui customer',
       });
 
       newCategoryId = category.id;
@@ -67,6 +97,7 @@ export class CustomerService {
     return await this.prisma.customers.findMany({
       where: {
         user_id: userId,
+        deleted_at: null,
       },
       select: {
         id: true,
@@ -88,5 +119,85 @@ export class CustomerService {
         },
       },
     });
+  }
+
+  async getUserCustomerById(userId: string, id: string) {
+    return await this.prisma.customers.findUnique({
+      where: {
+        id,
+        user_id: userId,
+      },
+      select: {
+        id: true,
+        phone_number: true,
+        name: true,
+        email: true,
+        address: true,
+        notes: true,
+        category: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+        status: {
+          select: {
+            name: true,
+            id: true,
+          },
+        },
+        tags: true,
+      },
+    });
+  }
+
+  async softDeleteCustomer(userId: string, customerId: string) {
+    await this.prisma.customers.update({
+      data: {
+        deleted_at: new Date(),
+      },
+      where: {
+        id: customerId,
+        user_id: userId,
+      },
+    });
+  }
+
+  async updateCustomerService(
+    userId: string,
+    customerId: string,
+    payload: CreateCustomerDto,
+  ) {
+    const isNewCategory = payload.category === '__add_new__';
+    const isNewStatus = payload.status === '__add_new__';
+    let newCategoryId = Number(payload.category);
+    let newStatusId = Number(payload.status);
+
+    if (isNewCategory && payload.newCategory) {
+      const category = await this.category.createNewCustomerCategories({
+        name: payload.newCategory,
+        user_id: userId,
+        description: 'Ditambahkan secara otomatis melalui customer',
+      });
+
+      newCategoryId = category.id;
+    }
+
+    if (isNewStatus && payload.newStatus) {
+      const status = await this.status.createNewCustomerStatus({
+        name: payload.newStatus,
+        user_id: userId,
+      });
+
+      newStatusId = status.id;
+    }
+
+    await this.updateCustomer(
+      userId,
+      customerId,
+      payload,
+      newCategoryId,
+      newStatusId,
+    );
   }
 }

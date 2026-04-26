@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Customers" ALTER COLUMN "deleted_at" SET DATA TYPE TIMESTAMPTZ;

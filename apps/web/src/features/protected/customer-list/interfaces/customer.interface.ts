@@ -6,6 +6,6 @@ export interface CustomerBase {
   address: string;
   notes: string;
   tags: string[];
-  category: { name: string };
-  status: { name: string };
+  category: { name: string; id: number };
+  status: { name: string; id: number };
 }

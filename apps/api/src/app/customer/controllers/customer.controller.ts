@@ -1,4 +1,13 @@
-import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+  UseGuards,
+} from '@nestjs/common';
 import type { UserJwtPayload } from 'src/@types/auth';
 import { User } from 'src/decorator/user.decorator';
 import { JwtAuthGuard } from 'src/guards/jwt-auth.guard';
@@ -22,6 +31,32 @@ export class CustomerListController {
     @Body() body: CreateCustomerDto,
   ) {
     await this.service.createCustomerService(user.sub, body);
+    return { success: true };
+  }
+
+  @Get(':id')
+  async getCustomerById(@User() user: UserJwtPayload, @Param('id') id: string) {
+    const data = await this.service.getUserCustomerById(user.sub, id);
+
+    return data;
+  }
+
+  @Patch(':id')
+  async updateCustomerById(
+    @User() user: UserJwtPayload,
+    @Param('id') id: string,
+    @Body() body: CreateCustomerDto,
+  ) {
+    await this.service.updateCustomerService(user.sub, id, body);
+    return { success: true };
+  }
+
+  @Delete(':id')
+  async deleteCustomerById(
+    @User() user: UserJwtPayload,
+    @Param('id') id: string,
+  ) {
+    await this.service.softDeleteCustomer(user.sub, id);
     return { success: true };
   }
 }

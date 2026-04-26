@@ -19,9 +19,9 @@ model CustomerStatus {
 }
 
 model Customers {
-  id           String   @id @default(uuid()) @db.Uuid
+  id           String    @id @default(uuid()) @db.Uuid
   name         String
-  user_id      String   @map("user_id") @db.Uuid
+  user_id      String    @map("user_id") @db.Uuid
   phone_number String
   email        String
   category_id  Int
@@ -29,6 +29,7 @@ model Customers {
   status_id    Int
   notes        String?
   tags         String[]
+  deleted_at   DateTime? @db.Timestamptz()
 
   user     User             @relation(fields: [user_id], references: [id], onDelete: Cascade)
   category CustomerCategory @relation(fields: [category_id], references: [id], onDelete: Cascade)
