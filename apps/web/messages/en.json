@@ -71,7 +71,10 @@
       "instruction": "Press",
       "instructionOr": "or",
       "instructionEnd": "to add a tag"
-    }
+    },
+    "loadingPlaceholder": "Loading...",
+    "noOptions": "Tidak ada data",
+    "addNew": "Add new"
   },
   "customers": {
     "title": "Customers",
@@ -79,7 +82,9 @@
     "addButton": "Add Customer",
     "dialog": {
       "addTitle": "Add New Customer",
-      "addDescription": "Enter your customer details here. Click save when done."
+      "addDescription": "Enter your customer details here. Click save when done.",
+      "deleteTitle": "Delete Customer",
+      "deleteDescription": "This action cannot be undone. Customer data will be permanently deleted."
     },
     "form": {
       "name": "Name",
@@ -89,7 +94,37 @@
       "category": "Category",
       "status": "Status",
       "notes": "Notes",
+      "tags": "Tags",
+      "newCategoryLabel": "New Category Name",
+      "newStatusLabel": "New Status Name"
+    },
+    "table": {
+      "name": "Name",
+      "phone": "WhatsApp Number",
+      "email": "Email",
+      "category": "Category",
+      "status": "Status",
+      "address": "Address",
+      "notes": "Notes",
       "tags": "Tags"
+    },
+    "actions": {
+      "delete": "Delete"
+    },
+    "validation": {
+      "nameMin": "Name must be at least 3 characters",
+      "nameMax": "Name is too long",
+      "emailInvalid": "Invalid email format",
+      "addressMax": "Address maximum 500 characters",
+      "notesMax": "Notes maximum 1000 characters",
+      "newCategoryRequired": "New category name is required",
+      "newStatusRequired": "New status name is required"
+    },
+    "toast": {
+      "addPending": "Adding customer...",
+      "addSuccess": "Customer added successfully",
+      "deletePending": "Deleting customer...",
+      "deleteSuccess": "Customer deleted successfully"
     }
   },
   "customer_categories": {

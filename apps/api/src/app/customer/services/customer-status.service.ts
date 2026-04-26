@@ -41,7 +41,7 @@ export class CustomerStatusService {
   async createNewCustomerStatus(
     payload: Prisma.CustomerStatusUncheckedCreateInput,
   ) {
-    await this.prisma.customerStatus.create({ data: payload });
+    return await this.prisma.customerStatus.create({ data: payload });
   }
 
   async deleteCustomerStatus(userId: string, statusId: number) {

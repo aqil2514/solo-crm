@@ -41,7 +41,7 @@ export class CustomerCategoriesService {
   async createNewCustomerCategories(
     payload: Prisma.CustomerCategoryUncheckedCreateInput,
   ) {
-    await this.prisma.customerCategory.create({ data: payload });
+    return await this.prisma.customerCategory.create({ data: payload });
   }
 
   async deleteCustomerCategories(userId: string, categoryId: number) {

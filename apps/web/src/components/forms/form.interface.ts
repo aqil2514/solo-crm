@@ -10,3 +10,8 @@ export interface BasicFormFieldProps<
   placeholder?: string;
   className?: string;
 }
+
+export interface BaseFormComponentProps<T> {
+  defaultValues?: T;
+  onSubmit: (values: T) => Promise<void> | void;
+}

@@ -4,7 +4,7 @@ import { QueryKey, useQuery } from "@tanstack/react-query";
 export function useFetch<T = unknown>(
   queryKey: QueryKey,
   url: string,
-  enabled: boolean,
+  enabled?: boolean,
 ) {
   const fetcher = useQuery({
     queryKey: queryKey,

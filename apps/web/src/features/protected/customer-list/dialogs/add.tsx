@@ -1,24 +1,30 @@
-import { BaseDialog } from "@/components/molecules/base-dialog";
-import { useQueryState } from "@/hooks/use-query-state";
 import { CustomerForm } from "../forms";
 import { useTranslations } from "next-intl";
+import { BaseAddDialog } from "@/components/molecules/base-add-dialog";
+import { useResourceAction } from "@/hooks/use-resources-action";
+import { useCustomerData } from "../provider/customer.provider";
 
 export function DialogCustomerAdd() {
-  const { get, remove } = useQueryState();
-  const t = useTranslations("customers.dialog");
-  const open = get("dialog") === "add";
-  const closeDialog = (open: boolean) => {
-    if (!open) return remove("dialog");
-  };
+  const t = useTranslations("customers");
+  const { refetch } = useCustomerData();
+  const { isOpen, handleClose, performAction } = useResourceAction({
+    dialogType: "add",
+    resourceKey: "customer",
+    endpoint: "/customer/list",
+    refetchList: refetch,
+    translations: {
+      pending: t("toast.addPending"),
+      success: t("toast.addSuccess"),
+    },
+  });
 
   return (
-    <BaseDialog
-      open={open}
-      onOpenChange={closeDialog}
-      title={t("addTitle")}
-      description={t("addDescription")}
-    >
-      <CustomerForm />
-    </BaseDialog>
+    <BaseAddDialog
+      open={isOpen}
+      onOpenChange={handleClose}
+      title={t("dialog.addTitle")}
+      description={t("dialog.addDescription")}
+      renderForm={() => <CustomerForm onSubmit={performAction} />}
+    />
   );
 }

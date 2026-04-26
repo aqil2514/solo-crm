@@ -11,7 +11,10 @@ import { ReactNode } from "react";
 import { toast } from "react-toastify";
 import { useTranslations } from "next-intl";
 
-export interface BaseFormProps<TInput extends FieldValues, TOutput extends FieldValues> {
+export interface BaseFormProps<
+  TInput extends FieldValues,
+  TOutput extends FieldValues = TInput,
+> {
   schema: ZodType<TOutput, TInput>;
   defaultValues: DefaultValues<TInput>;
   onSubmit: (values: TOutput) => Promise<void> | void;
@@ -20,7 +23,10 @@ export interface BaseFormProps<TInput extends FieldValues, TOutput extends Field
   className?: string;
 }
 
-export function BaseForm<TInput extends FieldValues, TOutput extends FieldValues>({
+export function BaseForm<
+  TInput extends FieldValues,
+  TOutput extends FieldValues,
+>({
   schema,
   defaultValues,
   onSubmit,
@@ -49,7 +55,11 @@ export function BaseForm<TInput extends FieldValues, TOutput extends FieldValues
     >
       {children(form)}
 
-      <Button type="submit" disabled={isSubmitting} className="w-full sm:w-auto">
+      <Button
+        type="submit"
+        disabled={isSubmitting}
+        className="w-full sm:w-auto"
+      >
         {isSubmitting ? t("submitting") : defaultSubmitLabel}
       </Button>
     </form>

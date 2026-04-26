@@ -71,7 +71,10 @@
       "instruction": "Tekan",
       "instructionOr": "atau",
       "instructionEnd": "untuk menambah tag"
-    }
+    },
+    "loadingPlaceholder": "Memuat...",
+    "noOptions": "No options",
+    "addNew": "Tambah Baru"
   },
   "customers": {
     "title": "Pelanggan",
@@ -79,7 +82,9 @@
     "addButton": "Tambah Pelanggan",
     "dialog": {
       "addTitle": "Tambah Pelanggan Baru",
-      "addDescription": "Masukkan detail pelanggan Anda di sini. Klik simpan jika sudah selesai."
+      "addDescription": "Masukkan detail pelanggan Anda di sini. Klik simpan jika sudah selesai.",
+      "deleteTitle": "Hapus Pelanggan",
+      "deleteDescription": "Aksi ini tidak dapat dibatalkan. Data pelanggan akan dihapus secara permanen."
     },
     "form": {
       "name": "Nama",
@@ -89,7 +94,37 @@
       "category": "Kategori",
       "status": "Status",
       "notes": "Catatan",
+      "tags": "Tags",
+      "newCategoryLabel": "Nama Kategori Baru",
+      "newStatusLabel": "Nama Status Baru"
+    },
+    "table": {
+      "name": "Nama",
+      "phone": "No. WhatsApp",
+      "email": "Email",
+      "category": "Kategori",
+      "status": "Status",
+      "address": "Alamat",
+      "notes": "Catatan",
       "tags": "Tags"
+    },
+    "actions": {
+      "delete": "Hapus"
+    },
+    "validation": {
+      "nameMin": "Nama minimal harus 3 karakter",
+      "nameMax": "Nama terlalu panjang",
+      "emailInvalid": "Format email tidak valid",
+      "addressMax": "Alamat maksimal 500 karakter",
+      "notesMax": "Catatan maksimal 1000 karakter",
+      "newCategoryRequired": "Nama kategori baru wajib diisi",
+      "newStatusRequired": "Nama status baru wajib diisi"
+    },
+    "toast": {
+      "addPending": "Menambah pelanggan...",
+      "addSuccess": "Pelanggan berhasil ditambahkan",
+      "deletePending": "Menghapus pelanggan...",
+      "deleteSuccess": "Pelanggan berhasil dihapus"
     }
   },
   "customer_categories": {

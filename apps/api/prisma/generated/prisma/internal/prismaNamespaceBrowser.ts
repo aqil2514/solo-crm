@@ -95,6 +95,7 @@ export type CustomerStatusScalarFieldEnum = (typeof CustomerStatusScalarFieldEnu
 
 export const CustomersScalarFieldEnum = {
   id: 'id',
+  name: 'name',
   user_id: 'user_id',
   phone_number: 'phone_number',
   email: 'email',

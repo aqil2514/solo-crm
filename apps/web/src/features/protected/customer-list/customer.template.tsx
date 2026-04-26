@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { CustomerProvider } from "./provider/customer.provider";
 import { useQueryState } from "@/hooks/use-query-state";
 import { DialogCustomerAdd } from "./dialogs/add";
+import { DialogCustomerDelete } from "./dialogs/delete";
+import { CustomerTable } from "./components/table";
 import { useTranslations } from "next-intl";
 
 export function CustomerTemplate() {
@@ -26,9 +28,12 @@ const InnerTemplate = () => {
           description={t("description")}
         />
         <Button onClick={() => set("dialog", "add")}>{t("addButton")}</Button>
+
+        <CustomerTable />
       </MainContainer>
 
       <DialogCustomerAdd />
+      <DialogCustomerDelete />
     </>
   );
 };
